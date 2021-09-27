@@ -5,15 +5,15 @@ const conectarDB = async() => {
     try {
         await mongoose.connect(process.env.DB_MONGO, {
             useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false
+            useUnifiedTopology: true
+                // useFindAndModify: false //genera un error
         })
         console.log('BD conectada');
 
     } catch (error) {
         console.log("algo salio mal ...")
         console.log(error);
-        proccess.exit(1); //Detenemos la app
+        process.exit(1); //Detenemos la app
     }
 }
 
